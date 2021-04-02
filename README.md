@@ -1,4 +1,5 @@
-# NetChat
+# NetChat 
+![MIT License](https://img.shields.io/badge/license-MIT-green) \
 A simple python script using sockets and threading to chat on the same network.
 
 ## 💾 Installation
