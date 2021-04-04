@@ -1,4 +1,4 @@
-[NetChat](https://github.com/HYOUG/NetChat/blob/main/data/assets/icon.png?raw=True)
+![NetChat](https://github.com/HYOUG/NetChat/blob/main/data/assets/icon.png?raw=True)
           
 # NetChat 
 ![MIT License](https://img.shields.io/badge/license-MIT-green) \
