@@ -1,18 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-# script by HYOUG
-
-import socket
-from datetime import datetime
-from os import system
-from select import select
-from time import time
-from rich import print
-from classes.Message import Message
-from classes.User import User
-from threading import Thread
-
-
 class SocketServer:
     
     """Socket Server class"""
@@ -193,26 +178,3 @@ class SocketServer:
         """Stop the login loop thread"""
         self.isopened = False
         print("[i] Login : False")
-        
-        
-    
-if __name__ == "__main__":
-    system("cls")
-    system("mode 80, 30")
-    system("title NetChat - Server")
-    
-    print(
-    """
-    [bold blue]
-         __     _     ___ _           _   
-      /\ \ \___| |_  / __\ |__   __ _| |_ 
-     /  \/ / _ \ __|/ /  | '_ \ / _` | __|
-    / /\  /  __/ |_/ /___| | | | (_| | |_ 
-    \_\ \/ \___|\__\____/|_| |_|\__,_|\__|                                 
-    [/bold blue]
-    """)
-    
-    host = input("Enter the socket server HOST : ")
-    port = int(input("Enter the socket server PORT : "))  
-    server = SocketServer()
-    server.run()          

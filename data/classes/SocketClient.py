@@ -1,19 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-# script by HYOUG
-
-import socket
-from time import time
-from datetime import datetime
-from os import system
-from sys import stdin
-from rich import print
-from classes.Message import Message
-from classes.User import User
-from sys import stdin
-from threading import Thread
-
-
 class SocketClient:
     
     """Socket Client class"""
@@ -110,33 +94,3 @@ class SocketClient:
     def disconnect(self):
         self.socket.close()
         self.log(f"[i] disconnected")
-            
-            
-            
-            
-if __name__ == "__main__":
-    system("cls")
-    system("mode 80, 30")
-    system("title NetChat - Client")
-    
-    print(
-    """
-    [bold blue]
-         __     _     ___ _           _   
-      /\ \ \___| |_  / __\ |__   __ _| |_ 
-     /  \/ / _ \ __|/ /  | '_ \ / _` | __|
-    / /\  /  __/ |_/ /___| | | | (_| | |_ 
-    \_\ \/ \___|\__\____/|_| |_|\__,_|\__|                                 
-    [/bold blue]
-    """)
-    
-    
-    #username = input("Enter you username : ")
-    #host = input("Enter the socket server HOST : ")
-    #port = int(input("Enter the socket server PORT : "))  
-    #user = SocketClient(username=username)
-    # user.connect(host=host, port=port)
-    
-    user = SocketClient()
-    user.connect()
-    
