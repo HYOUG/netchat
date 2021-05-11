@@ -1,3 +1,6 @@
+# project's exceptions
 TODO.txt
-sandbox.py
+test/
+
+# generic exceptions
 __pycache__/

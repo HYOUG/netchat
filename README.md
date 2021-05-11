@@ -1,7 +1,7 @@
-![NetChat](https://github.com/HYOUG/NetChat/blob/main/data/assets/icon.png?raw=True)
+![NetChat](https://github.com/HYOUG/NetChat/blob/main/assets/readme_header.png?raw=True)
           
 # NetChat 
-![MIT License](https://img.shields.io/badge/license-MIT-green) \
+![Made in Python](https://img.shields.io/badge/Made%20in-Python-blue) ![MIT License](https://img.shields.io/badge/license-MIT-blue) \
 A simple python script using `sockets`, `threading`, `curses` and `Rich` to chat on the same network.
 
 ## 💾 Installation
