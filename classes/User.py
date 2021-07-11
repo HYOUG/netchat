@@ -4,8 +4,8 @@ class User:
     
     """Socket user class"""
     
-    def __init__(self, host: str = "0.0.0.0", port: int = 9999, username: str = "John Doe",
-                 uuid: str = str(randint(1000, 9999)), encoding: str = "utf-8") -> None:
+    def __init__(self, host:str = "0.0.0.0", port:int = 9999, username:str = "John Doe",
+                 uuid:str = str(randint(1000, 9999)), encoding:str = "utf-8") -> None:
         """        
         Parameters
         ----------
@@ -16,11 +16,11 @@ class User:
         encoding (str) def: None - users's encoding system
         """
         
-        #asserts checking the data format of the builder's arguments
-        # assert isinstance(host, str) or host is None, f"Invalid username argument format : {type(host)}. Expected a str"
-        # assert isinstance(port, int) or port is None, f"Invalid port argument format : {type(port)}. Expected an int"
-        # assert isinstance(username, str) or username is None, f"Invalid username argument format : {type(username)}. Expected an str"
-        # assert isinstance(username, str) or username is None, f"Invalid username argument format : {type(username)}. Expected an str"
+        # asserts
+        assert isinstance(host, str) or host is None, f"Invalid username argument format : {type(host)}. Expected a str"
+        assert isinstance(port, int) or port is None, f"Invalid port argument format : {type(port)}. Expected an int"
+        assert isinstance(username, str) or username is None, f"Invalid username argument format : {type(username)}. Expected an str"
+        assert isinstance(username, str) or username is None, f"Invalid username argument format : {type(username)}. Expected an str"
         
         self.host = host
         self.port = port
@@ -31,9 +31,9 @@ class User:
         
     def __str__(self) -> str:
         """String appearance of the User object"""
-        return str(self.uuid)
+        return f"<User UUID: {self.uuid}>"
     
     
-myuser = User("0.0.0.0", 9999, "HYOUG", 156485645684896)
-
-print(myuser)
+    def __repr__(self) -> str:
+        """String representation of the User object"""
+        return f"<User UUID: {self.uuid}>"

@@ -1,4 +1,4 @@
-![NetChat](https://github.com/HYOUG/NetChat/blob/main/assets/readme_header.png?raw=True)
+![NetChat](https://github.com/HYOUG/NetChat/blob/main/meta/header.png?raw=True)
           
 # NetChat 
 ![Made in Python](https://img.shields.io/badge/Made%20in-Python-blue) ![MIT License](https://img.shields.io/badge/license-MIT-blue) \
