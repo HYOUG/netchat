@@ -2,7 +2,7 @@
           
 # NetChat 
 ![Made in Python](https://img.shields.io/badge/Made%20in-Python-blue) ![MIT License](https://img.shields.io/badge/license-MIT-blue) \
-A simple python script using `sockets`, `threading`, `curses` and `Rich` to chat on the same network.
+A simple python script using `sockets`, `threading` and `curses` to chat on the same network.
 
 ## 💾 Installation
 ```bash
@@ -14,7 +14,7 @@ or, `Code button` > `Download ZIP`
 WIP
 
 ## 👍 Special Thanks
-Thanks to [Saverio](https://github.com/Saverio976) for suggesting the `Rich` modules and helping me for a few of the script's bugs.
+Thanks to [Saverio](https://github.com/Saverio976) for helping me with a few problems.
 
 ## 📜 License
 [MIT](https://choosealicense.com/licenses/mit/) (2021) License protected project.
