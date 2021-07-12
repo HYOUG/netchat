@@ -1,26 +1,32 @@
+from functions.utils import NoneType
 from classes.User import User
 
 class Message:
     
-    """Socket's message class"""
+    """NetChat's message class"""
     
-    def __init__(self, header:str = "MSG", author:str = None, timestamp:float = None,
-                 content:str = "Hello, World!") -> None:
-        
+    def __init__(self, header:str = "MSG", author:User = None, timestamp:float = None,
+                 content:str = None) -> None:
         """
+        [summary]
+
         Parameters
         ----------
-        header      (str)    def:None - message's header/prefix
-        author      (User)   def:None - message's author
-        timestamp   (float)  def:None - message's timestamp 
-        content     (str)    def:None - message's content
+        header : str, optional
+            [description], by default "MSG"
+        author : User, optional
+            [description], by default None
+        timestamp : float, optional
+            [description], by default None
+        content : str, optional
+            [description], by default None
         """
         
         # asserts
-        assert isinstance(header, str) or header is None, f"Invalid header argument format : {type(header)}. Expected a str"
-        assert isinstance(author, User) or header is None, f"Invalid author argument format : {type(author)}. Expected a User"
-        assert isinstance(timestamp, float) or header is None, f"Invalid timestamp argument format : {type(timestamp)}. Expected a float"
-        assert isinstance(content, str) or header is None, f"Invalid content argument format : {type(content)}. Expected a str"
+        assert isinstance(header, str), f"Invalid 'header' data type : {type(header)}. Expected a str."
+        assert isinstance(author, (User, NoneType)), f"Invalid 'author' data type : {type(author)}. Expected a str or NoneType."
+        assert isinstance(timestamp, (float, NoneType)), f"Invalid 'timestamp' data type : {type(timestamp)}. Expected a float or NoneType."
+        assert isinstance(content, (str, NoneType)), f"Invalid 'content' data type : {type(content)}. Expected a str or NoneType."
         
         # attributes from arguments
         self.header = header

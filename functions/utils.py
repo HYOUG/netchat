@@ -1,16 +1,16 @@
 from json import load, dump
 
 
-def get_settings():
-    f = open("./settings/client.json", "r")
-    settings = load(f)
-    f.close()
-    return settings
+NoneType = type(None)
 
 
-def edit_settings(key: str, value: str):
-    settings = get_settings()
+def get_settings(target:str):
+    with open(f"./settings/{target}.json", "r") as f:
+        return load(f)
+
+
+def edit_settings(target:str, key:str, value:str):
+    settings = get_settings(target)
     settings[key] = value
-    f = open("./settings/client.json", "w")
-    dump(settings, f)
-    f.close()  
+    with open(f"./settings/{target}.json", "w") as f:
+        dump(settings, f)
