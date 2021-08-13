@@ -1,25 +1,26 @@
-from random import randint
+from functions.utils import NoneType
+from socket import socket
 
 class User:
+    """
+    [summary]
+    """
     
-    """NetChat's user class"""
-    
-    def __init__(self, host:str = "0.0.0.0", port:int = 9999, username:str = "John Doe",
-                 uuid:str = str(randint(1000, 9999)), encoding:str = "utf-8",
-                 encoding_error:str = "replace") -> None:
+    def __init__(self, _socket:socket, address:tuple, uuid:int, username:str = None,
+                 encoding:str = "utf-8", encoding_error:str = "replace") -> None:
         """
-        [summary]
+        Generate a NetChat user.
 
         Parameters
         ----------
-        host : str, optional
-            [description], by default "0.0.0.0"
-        port : int, optional
-            [description], by default 9999
+        user_socket : socket
+            [description]
+        address : tuple
+            [description]
+        uuid : int
+            [description]
         username : str, optional
-            [description], by default "John Doe"
-        uuid : str, optional
-            [description], by default str(randint(1000, 9999))
+            [description], by default None
         encoding : str, optional
             [description], by default "utf-8"
         encoding_error : str, optional
@@ -27,18 +28,19 @@ class User:
         """
         
         # asserts
-        assert isinstance(host, str), f"Invalid username argument format : {type(host)}. Expected a str."
-        assert isinstance(port, int), f"Invalid port argument format : {type(port)}. Expected an int."
-        assert isinstance(username, str), f"Invalid username argument format : {type(username)}. Expected an str."
-        assert isinstance(uuid, str), f"Invalid uuid argument format : {type(uuid)}. Expected a string."
-        assert isinstance(encoding, str), f"Invalid encoding argument format : {type(encoding)}. Expected a string."
-        assert isinstance(encoding_error, str), f"Invalid encoding_errors argument format : {type(encoding_error)}. Expected a string."
+        assert isinstance(_socket, socket), f"Invalid '_socket' data type : {type(socket)}. Expected a socket."
+        assert isinstance(address, tuple), f"Invalid 'address' data type : {type(address)}. Expected a tuple."
+        assert isinstance(uuid, int), f"Invalid 'uuid' data type : {type(uuid)}. Expected an int."
+        assert isinstance(username, (str, NoneType)), f"Invalid 'username' data type : {type(username)}. Expected a str or NoneType."
+        assert isinstance(encoding, str), f"Invalid 'encoding' data type : {type(encoding)}. Expected a str."
+        assert isinstance(encoding_error, str), f"Invalid 'encoding_errors' data type : {type(encoding_error)}. Expected a str."
         
         # attributes from arguments
-        self.host = host
-        self.port = port
-        self.username = username
+        self.socket = _socket
+        self.address = address
+        self.host, self.port = address
         self.uuid = uuid
+        self.username = username
         self.encoding = encoding
         self.encoding_errors = encoding_error
         

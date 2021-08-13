@@ -2,28 +2,29 @@ from functions.utils import NoneType
 from classes.User import User
 
 class Message:
+    """
+    [summary]
+    """
     
-    """NetChat's message class"""
-    
-    def __init__(self, header:str = "MSG", author:User = None, timestamp:float = None,
+    def __init__(self, header:str = None, author:User = None, timestamp:float = None,
                  content:str = None) -> None:
         """
-        [summary]
+        Generate a NetChat Message.
 
         Parameters
         ----------
         header : str, optional
-            [description], by default "MSG"
+            Message's header, by default None
         author : User, optional
-            [description], by default None
+            Message's author, by default None
         timestamp : float, optional
-            [description], by default None
+            Message's timestamp, by default None
         content : str, optional
-            [description], by default None
+            Message's content, by default None
         """
         
         # asserts
-        assert isinstance(header, str), f"Invalid 'header' data type : {type(header)}. Expected a str."
+        assert isinstance(header, (str, NoneType)), f"Invalid 'header' data type : {type(header)}. Expected a str or NoneType."
         assert isinstance(author, (User, NoneType)), f"Invalid 'author' data type : {type(author)}. Expected a str or NoneType."
         assert isinstance(timestamp, (float, NoneType)), f"Invalid 'timestamp' data type : {type(timestamp)}. Expected a float or NoneType."
         assert isinstance(content, (str, NoneType)), f"Invalid 'content' data type : {type(content)}. Expected a str or NoneType."
@@ -33,14 +34,6 @@ class Message:
         self.author = author
         self.timestamp = timestamp
         self.content = content
-                    
-            
-    def parse(self, string:str) -> None:
-        slots = string.split("|")       
-        self.header = slots[0]
-        self.author = slots[1]
-        self.timestamp = slots[2]
-        self.content = "".join(slots[3:])
         
         
     def  __repr__(self) -> str:
@@ -54,6 +47,57 @@ class Message:
     
     
     def encoded(self, encoding:str = "utf-8", encoding_errors:str = "replace") -> bytes:
-        """Encoded version of the message"""
-        return str(self).encode(encoding, encoding_errors)
+        """
+        Encoded version of the message.
+
+        Parameters
+        ----------
+        encoding : str, optional
+            [description], by default "utf-8"
+        encoding_errors : str, optional
+            [description], by default "replace"
+
+        Returns
+        -------
+        bytes
+            [description]
+
+        Raises
+        ------
+        Exception
+            [description]
+        """
+        
+        try:
+            short_repr = f"{self.header}|{self.author}|{self.timestamp}|{self.content}".replace("None", "")
+            return short_repr.encode(encoding, encoding_errors)
+        except UnicodeEncodeError:
+            raise Exception("")                                  #TODO
+        
+        
+    def parse(self, string:str) -> None:
+        """
+        [summary]
+
+        Parameters
+        ----------
+        string : str
+            [description]
+            
+            
+        Raises
+        ------
+        Exception
+            [description]
+        """
+        
+        try:
+            slots = string.split("|")       
+            self.header = slots[0]
+            self.author = slots[1]
+            self.timestamp = slots[2]
+            self.content = "".join(slots[3:])
+        except ValueError:
+            Exception("")
+            
         

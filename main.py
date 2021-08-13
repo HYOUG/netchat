@@ -7,7 +7,6 @@ from classes.Server import Server
 from functions.utils import *
 
 
-
 HEADER = """
          __     _     ___ _           _   
       /\ \ \___| |_  / __\ |__   __ _| |_ 
@@ -21,19 +20,21 @@ def main():
     
     print(HEADER)
     
-    print("Launch :")
-    print("[1] - Server")
-    print("[2] - Client")
-    print("[3] - Help")
-    
     while True:
+        print("\nLaunch :")
+        print("[1] Server")
+        print("[2] Client")
+        print("[3] Help")
+        print("[4] Exit")
+        
         user_input = input("\n> ")
         
         if user_input == "1":
             print("\nServer :")
-            print("[1] - Default settings")
-            print("[2] - Last used settings")
-            print("[3] - Custom settings")
+            print("[1] Default settings")
+            print("[2] Last used settings")
+            print("[3] Custom settings")
+            print("[4] Back")
             
             while True:
                 user_input = input("\n> ")
@@ -60,10 +61,12 @@ def main():
                     log_enabled = input("[5/7] Enable log (y/n) (def. = True) :")
                     width = input("[6/7] width (def. = 80) : ")
                     height = input("[7/7] height (def. = 30) : ")
-                    
                     server = Server(host, port, max_users, buff_size, log_enabled)
                     server.show(width, height)
                     server.run()
+                    break
+                
+                elif user_input == "4":
                     break
                 
                 else:
@@ -72,9 +75,10 @@ def main():
             
         elif user_input == "2":
             print("\nClient :")
-            print("[1] - Default settings")
-            print("[2] - Last used settings")
-            print("[3] - Custom settings")
+            print("[1] Default settings")
+            print("[2] Last used settings")
+            print("[3] Custom settings")
+            print("[4] Back")
             
             while True:
                 user_input = input("\n> ")
@@ -107,13 +111,20 @@ def main():
                     client.connect()
                     break
                 
+                elif user_input == "4":
+                    break
+                
                 else:
                     print("Invalid number, pleaser enter 1, 2 or 3.")
             
         elif user_input == "3":
             print("\nHelp :")
             print("help")
-            break
+            print("[PRESS ENTER TO RETURN TO THE MAIN MENU]")
+            input()
+        
+        elif user_input == "4":
+            exit()
         
         else:
             print("Invalid number, pleaser enter 1, 2 or 3.")

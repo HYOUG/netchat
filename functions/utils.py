@@ -2,6 +2,8 @@ from json import load, dump
 
 
 NoneType = type(None)
+client_def_values = {}
+server_def_values = {}
 
 
 def get_settings(target:str):
